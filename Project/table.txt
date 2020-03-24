@@ -1,0 +1,32 @@
+drop table Department;
+drop table Employee;
+
+
+create table Department(  
+  dept_id     int,  
+  d_name      varchar(14),  
+  constraint pk_department primary key (dept_id)  
+)
+
+create table Employee(  
+  emp_no    int,  
+  emp_name   varchar(10),  
+  job_type      varchar(9),  
+  mg_name      varchar(10),  
+  sal     int,  
+  dept_no   int,
+  constraint pk_employee primary key (emp_no), 
+  CONSTRAINT fk_emp_dept FOREIGN KEY (dept_no) REFERENCES Department
+)
+
+insert into Department values(10, 'Accounting');
+insert into Department values(20, 'Research');
+insert into Department values(40, 'Operations');
+insert into Employee values(783, 'Ram', 'President', 'Rahul',50000, 10);
+insert into Employee values(769, 'Rohan', 'Manager','Sahil',60000, 40 );
+insert into Employee values(778, 'Aman', 'Coder','Rahul',70000, 10);
+insert into Employee values(770, 'Puneet', 'Analyst','Sahil',65000, 20 );
+
+
+select * from EMPLOYEE;
+select * from DEPARTMENT;
